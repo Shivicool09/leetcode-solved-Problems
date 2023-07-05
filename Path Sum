@@ -1,0 +1,23 @@
+class Solution {
+    boolean result=false;
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        if(root==null){
+            return result;
+        }
+        sub(root,targetSum);
+        return result;
+        
+    }
+    private void sub(TreeNode root,int targetSum){
+        targetSum-=root.val;
+        if(root.left==null && root.right==null && targetSum==0){
+            result=true;
+        }
+        if(root.right!=null){
+            sub(root.right,targetSum);
+        }
+        if(root.left!=null){
+            sub(root.left,targetSum);
+        }
+    }
+}
