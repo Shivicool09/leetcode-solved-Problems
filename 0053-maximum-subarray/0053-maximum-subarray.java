@@ -5,15 +5,15 @@ class Solution {
         int prefixSum = 0;
 
         for (int i = 0; i < nums.length; i++) {
-            prefixSum += nums[i];  // Calculate the prefix sum up to the current index
-            currSum = prefixSum;  // Reset the current sum to the current prefix sum
+            prefixSum += nums[i];  
+            currSum = prefixSum;  
 
             if (currSum > maxSum) {
-                maxSum = currSum;  // Update the maximum sum if needed
+                maxSum = currSum; 
             }
 
             if (prefixSum < 0) {
-                prefixSum = 0;  // Reset prefix sum to 0 if it becomes negative
+                prefixSum = 0;  
             }
         }
 
