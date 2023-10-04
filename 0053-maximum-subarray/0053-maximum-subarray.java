@@ -1,28 +1,18 @@
 class Solution {
     public static int maxSubArray(int[] nums) {
-        int currSum = 0;
-        int maxSum = Integer.MIN_VALUE;
-        int prefixSum = 0;
+        int ms = nums[0];
+        int cs = nums[0];
 
-        for (int i = 0; i < nums.length; i++) {
-            prefixSum += nums[i];  
-            currSum = prefixSum;  
-
-            if (currSum > maxSum) {
-                maxSum = currSum; 
-            }
-
-            if (prefixSum < 0) {
-                prefixSum = 0;  
-            }
+        for (int i = 1; i < nums.length; i++) {
+            cs = Math.max(nums[i], cs + nums[i]);
+            ms = Math.max(ms, cs);
         }
-
-        return maxSum;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int maxSum = maxSubArray(nums);
-        System.out.println("Max sum = " + maxSum);
+        
+        System.out.println("our max subarray sum is : " + ms);
+        return ms;
     }
 }
+
+
+
+   
